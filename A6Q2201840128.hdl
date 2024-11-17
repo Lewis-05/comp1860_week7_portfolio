@@ -16,10 +16,9 @@ CHIP A6Q2201840128 {
     And(a=notab, b=cnotd, out=part2);
 
     And(a=a, b=notB, out=anotb);
-    And(a=c, b=notD, out=cnotd);
     And(a=anotb, b=cnotd, out=part3);
 
     Or(a=part1, b=part2, out=or1);
     Or(a=part3, b=or1, out=f);
-    
+
 }
