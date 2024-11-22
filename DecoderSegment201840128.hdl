@@ -25,7 +25,7 @@ CHIP DecoderSegment201840128 {
 
 	Or(a=notAnotB, b=part2, out=part6);
 	Or(a=part3, b=part4, out=final1);
-	Or(a=part5, b=part6, out=fianl2);
+	Or(a=part5, b=part6, out=final2);
 
 	Or(a=final1, b=final2, out=d);
 }
