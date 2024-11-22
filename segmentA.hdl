@@ -1,0 +1,38 @@
+CHIP segmentA {
+	IN A, B, C, D;
+	OUT a;
+
+	PARTS:
+	Not(in=A, out=notA);
+	Not(in=B, out=notB);
+	Not(in=C, out=notC);
+	Not(in=D, out=notD);
+
+    And(a=notA, b=notB, out=notAnotB);
+    And(a=notAnotB, b=notD, out=part1);
+
+    And(a=notAnotB, b=C, out=part2);
+
+    And(a=notA, b=B, out=BnotA);
+    Or(a=C, b=D, out=CorD);
+    Or(a=notC, b=notD, out=notCornotD);
+    And(a=CorD, b=notCornotD, out=x);
+    And(a=BnotA, b=x, out=part3);
+
+    And(a=A, b=notB, out=AnotB);
+    And(a=notC, b=notD, out=notCnotD);
+    And(a=AnotB, b=notCnotD, out=part4);
+
+    And(a=C, b=D, out=CD);
+    And(a=AnotB, b=CD, out=part5);
+
+    And(a=A, b=B, out=AB);
+    And(a=AB, b=notCornotD, out=part6);
+
+    Or(a=part1, b=part2, out=final1);
+    Or(a=part3, b=part4, out=final2);
+    Or(a=part5, b=part6, out=final3);
+    Or(a=final1, b=final2, out=out1);
+    Or(a=final3, b=out1, out=a);
+
+}
