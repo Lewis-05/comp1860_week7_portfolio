@@ -14,7 +14,7 @@ CHIP A6Q2201840128 {
     And(a=notA, b=b, out=bnota);
     And(a=a, b=notB, out=anotb);
     And(a=c, b=d, out=cd);
-    Or(a=bnota, b=anotb, abonenegative)
+    Or(a=bnota, b=anotb, out=abonenegative)
     And(a=cd, b=abonenegative, out=x);
 
     Or(a=bdnotc, b=x, out=f);
