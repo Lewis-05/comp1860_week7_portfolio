@@ -1,0 +1,21 @@
+CHIP A6Q2201840128 {
+    IN a, b, c, d;
+    OUT f;
+
+    PARTS:
+    Not(in=a, out=notA);
+    Not(in=b, out=notB);
+    Not(in=c, out=notC);
+    Not(in=d, out=notD);
+
+    And(a=b, b=notC, out=bnotc);
+    And(a=bnotc, b=d, out=bdnotc);
+
+    And(a=notA, b=b, out=bnota);
+    And(a=a, b=notB, out=anotb);
+    And(a=c, b=d, out=cd);
+    Or(a=bnota, b=anotb, out=abonenegative);
+    And(a=cd, b=abonenegative, out=x);
+
+    Or(a=bdnotc, b=x, out=f);
+}
