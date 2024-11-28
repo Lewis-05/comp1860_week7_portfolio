@@ -24,7 +24,7 @@ CHIP Decoder201840128 {
 
     And(a=A, b=notB, out=AnotB);
     And(a=notC, b=notD, out=notCnotD);
-    And(a=AnotB, b=notC, out=part4a);
+    And(a=AnotB, b=notCnotD, out=part4a);
 
     And(a=C, b=D, out=CD);
     And(a=AnotB, b=CD, out=part5a);
@@ -121,5 +121,4 @@ CHIP Decoder201840128 {
     Or(a=part1g, b=part2g, out=final1g);
     Or(a=part3g, b=part4g, out=final2g);
     Or(a=final1g, b=final2g, out=g);
-
 }
