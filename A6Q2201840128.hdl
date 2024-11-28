@@ -9,17 +9,17 @@ CHIP A6Q2201840128 {
     Not(in=d, out=notD);
 
     And(a=notA, b=b, out=BnotA);
-    Or(a=c, b=d, out=CorD)
-    And(a=BnotA, b=CorD, out=x)
+    Or(a=c, b=d, out=CorD);
+    And(a=BnotA, b=CorD, out=x);
 
     And(a=a, b=notD, out=AnotD);
     Or(a=b, b=c, out=BorC);
-    And(a=AnotD, b=BorC, out=y)
+    And(a=AnotD, b=BorC, out=y);
 
     And(a=a, b=b, out=AB);
     And(a=notC, b=d, out=DnotC);
-    And(a=AB, b=DnotC, out=z)
+    And(a=AB, b=DnotC, out=z);
 
-    Or(a=x, b=y, out=xy)
-    Or(a=xy, b=z, out=f)
+    Or(a=x, b=y, out=xy);
+    Or(a=xy, b=z, out=f);
 }
