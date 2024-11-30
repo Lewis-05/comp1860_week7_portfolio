@@ -15,8 +15,8 @@ CHIP A6Q2201840128 {
     And4(a=a, b=b, c=notC, d=notD, out=part4);
     And4(a=a, b=b, c=notC, d=d, out=part5);
 
-    Or(a=part1, b=part2, out=part12)
-    Or(a=part3, b=part4, out=final34)
-    Or(a=part5, b=part12, out=part125)
-    Or(a=part34, b=part125, out=f)
+    Or(a=part1, b=part2, out=part12);
+    Or(a=part3, b=part4, out=final34);
+    Or(a=part5, b=part12, out=part125);
+    Or(a=part34, b=part125, out=f);
 }
