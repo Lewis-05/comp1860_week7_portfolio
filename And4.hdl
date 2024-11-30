@@ -6,5 +6,5 @@ CHIP And4 {
 
     And(a=a, b=b, out=ab);
     And(a=c, b=d, out=cd);
-    And(a=ab, b=cd, outx);
+    And(a=ab, b=cd, out=x);
 }
