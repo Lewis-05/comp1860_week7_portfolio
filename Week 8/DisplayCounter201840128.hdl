@@ -1,0 +1,18 @@
+CHIP DisplayCounter201840128 {
+    IN inc, reset;
+    OUT a, b, c, d, e, f, g;
+
+    PARTS:
+    // Get the current number to display
+    Counter4bit(inc=inc, reset=reset, out=out);
+
+    // Output the display
+    segmentA(A=out[0], B=out[1], C=out[2], D=out[3], out=a);
+    segmentB(A=out[0], B=out[1], C=out[2], D=out[3], out=b);
+    segmentC(A=out[0], B=out[1], C=out[2], D=out[3], out=c);
+    segmentD(A=out[0], B=out[1], C=out[2], D=out[3], out=d);
+    segmentE(A=out[0], B=out[1], C=out[2], D=out[3], out=e);
+    segmentF(A=out[0], B=out[1], C=out[2], D=out[3], out=f);
+    segmentG(A=out[0], B=out[1], C=out[2], D=out[3], out=g);
+
+}

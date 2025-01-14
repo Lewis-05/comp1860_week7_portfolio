@@ -1,0 +1,13 @@
+CHIP Counter4bit {
+    IN inc, reset;
+    OUT out[4];
+
+    PARTS:
+    // Increment the counter by 1
+    Inc4(in=out, out=incremented);
+
+    // Mux selects between inc value or 0 if reset
+    Constant(value=0, out=blanknum);
+    Mux4(a=incremented, b=blanknum, sel=reset, out=out);
+    
+}

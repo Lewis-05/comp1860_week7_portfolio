@@ -1,0 +1,15 @@
+CHIP Inc4 {
+    IN in[4];
+    OUT out[4];
+
+    PARTS:
+    // Initialize a 4-bit constant to represent the value 1.
+    Constant(value=1, out=c[0]);
+
+    // Use 4 FullAdders to add each bit from in and the carry bit.
+    FullAdder(a=in[0], b=c[0], c=0, sum=out[0], carry=c[1]);
+    FullAdder(a=in[1], b=c[1], c=0, sum=out[1], carry=c[2]);
+    FullAdder(a=in[2], b=c[2], c=0, sum=out[2], carry=c[3]);
+    FullAdder(a=in[3], b=c[3], c=0, sum=out[3], carry=c[4]);
+
+}

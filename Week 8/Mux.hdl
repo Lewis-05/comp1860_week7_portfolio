@@ -1,0 +1,14 @@
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    NOT(in=sel, out=selNot);
+
+    // Output a or b based on sel
+    AND(a=a, b=selNot, out=andA);  
+    AND(a=b, b=sel, out=andB);
+
+    // Combine the results of the AND gates
+    OR(a=andA, b=andB, out=out);  // out = andA OR andB
+}
