@@ -7,7 +7,7 @@ CHIP Counter4bit {
     Inc4(in=out, out=incremented);
 
     // Mux selects between inc value or 0 if reset
-    Not(in=1111, out=zero)
+    Not(a=1111, out=zero)
     Mux4(a=incremented, b=zero, sel=reset, out=out);
     
 }
