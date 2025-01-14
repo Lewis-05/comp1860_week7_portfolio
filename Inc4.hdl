@@ -7,7 +7,7 @@ CHIP Inc4 {
     // Not(a=1110, out=c);
 
     // Use 4 FullAdders to add each bit from in and the carry bit.
-    FullAdder(a=in[0], b=1, c=0, sum=out[0], carry=c1);
+    FullAdder(a=in[0], b=0b1, c=0, sum=out[0], carry=c1);
     FullAdder(a=in[1], b=c1, c=0, sum=out[1], carry=c2);
     FullAdder(a=in[2], b=c2, c=0, sum=out[2], carry=c3);
     FullAdder(a=in[3], b=c3, c=0, sum=out[3], carry=c4);
