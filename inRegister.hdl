@@ -1,0 +1,8 @@
+CHIP inRegister {
+    IN register, save;
+    OUT out;
+
+    PARTS:
+    Mux(a=out, b=register, sel=save, out=out)
+
+}

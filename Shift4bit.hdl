@@ -1,0 +1,16 @@
+CHIP Shift4bit {
+    IN x;
+    OUT out[4];
+
+    PARTS:
+    // check if out[0] needs to be true 
+    inRegister(register=x, save=false, out=out[0])
+    // saves the current inputted x to a register for the next run
+    inRegister(register=x, save=true, out=notneeded)
+
+    // Checks if w was a 1 before and if so makes the x true otherwise leaves the x in current state
+    Mux(a=out[1], b=out[0], sel=out[0], out=out[1]); // output x
+    Mux(a=out[2], b=out[1], sel=out[1], out=out[2]); // output y
+    Mux(a=out[3], b=out[2], sel=out[2], out=out[3]); // output z
+
+}
