@@ -4,5 +4,5 @@ CHIP inRegister {
 
     PARTS:
     Mux(a=out, b=register, sel=save, out=selected);
-
+    out = selected;
 }
