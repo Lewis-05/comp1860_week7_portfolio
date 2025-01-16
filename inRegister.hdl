@@ -3,7 +3,6 @@ CHIP inRegister {
     OUT out;
 
     PARTS:
-    Mux(a=out, b=register, sel=save, out=selected)
-    Or(a=selected, b=true, out=out)
+    Mux(a=out, b=register, sel=save, out=selected);
 
 }
