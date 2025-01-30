@@ -20,13 +20,14 @@ CHIP DisplayCounter201840128 {
     Register(in=displaynumber2, load=run, out[3]=A,out[2]=B,out[1]=C,out[0]=D,out=output);
 
     // Output the display
-    segmentA(A=A, B=B, C=C, D=D, out=a);
-    segmentB(A=A, B=B, C=C, D=D, out=b);
-    segmentC(A=A, B=B, C=C, D=D, out=c);
-    segmentD(A=A, B=B, C=C, D=D, out=d);
-    segmentE(A=A, B=B, C=C, D=D, out=e);
-    segmentF(A=A, B=B, C=C, D=D, out=f);
-    segmentG(A=A, B=B, C=C, D=D, out=g);
+    Decoder201840128(A=A, B=B, C=C, D=D, a=a, b=b, c=c, d=d, e=e, f=f, g=g);
+    //segmentA(A=A, B=B, C=C, D=D, out=a);
+    //segmentB(A=A, B=B, C=C, D=D, out=b);
+    //segmentC(A=A, B=B, C=C, D=D, out=c);
+    //segmentD(A=A, B=B, C=C, D=D, out=d);
+    //segmentE(A=A, B=B, C=C, D=D, out=e);
+    //segmentF(A=A, B=B, C=C, D=D, out=f);
+    //segmentG(A=A, B=B, C=C, D=D, out=g);
 
 }
 
