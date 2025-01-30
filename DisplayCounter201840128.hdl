@@ -3,16 +3,31 @@ CHIP DisplayCounter201840128 {
     OUT a, b, c, d, e, f, g;
 
     PARTS:
-    // Get the current number to display
-    Counter4bit(inc=inc, reset=reset, out=out);
+    // Get the current number after its incremented
+    Inc16(in=output, out=incremented);
+    // Choose to use the current number or incremented
+    Mux16(a=output, b=incremented, sel=inc, out=displaynumber)
+
+    // Create the zero number for if theres a reset
+    And16(a=displaynumber, b=false, out=zero)
+    // Choose to use displaynumber or reset
+    Mux16(a=displaynumber, b=zero, sel=reset, out=displaynumber2)
+
+    // Check for an input for the chip
+    Or(a=inc, b=reset, out=run)
+
+    // Register to store the display values
+    Register(in=displaynumber2, load=run, out[3]=A,out[2]=B,out[1]=C,out[0]=D,out=output)
 
     // Output the display
-    segmentA(A=out[0], B=out[1], C=out[2], D=out[3], out=a);
-    segmentB(A=out[0], B=out[1], C=out[2], D=out[3], out=b);
-    segmentC(A=out[0], B=out[1], C=out[2], D=out[3], out=c);
-    segmentD(A=out[0], B=out[1], C=out[2], D=out[3], out=d);
-    segmentE(A=out[0], B=out[1], C=out[2], D=out[3], out=e);
-    segmentF(A=out[0], B=out[1], C=out[2], D=out[3], out=f);
-    segmentG(A=out[0], B=out[1], C=out[2], D=out[3], out=g);
+    segmentA(A=A, B=B, C=C, D=D, out=a);
+    segmentB(A=A, B=B, C=C, D=D, out=b);
+    segmentC(A=A, B=B, C=C, D=D, out=c);
+    segmentD(A=A, B=B, C=C, D=D, out=d);
+    segmentE(A=A, B=B, C=C, D=D, out=e);
+    segmentF(A=A, B=B, C=C, D=D, out=f);
+    segmentG(A=A, B=B, C=C, D=D, out=g);
 
 }
+
+// group number might be 19 or 2456301
